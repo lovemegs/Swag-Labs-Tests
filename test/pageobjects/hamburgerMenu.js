@@ -22,6 +22,12 @@ class HamburgerMenu {
     get btnClose () {
         return $('button#react-burger-cross-btn')
     }
+    get addToCart () {
+        return $('button#add-to-cart-sauce-labs-backpack')
+    }
+    get cartIconNumber () {
+        return $('span.shopping_cart_badge')
+    }
 
     async openHamburgerMenu () {
         await this.btnHamburgerMenu.click();
@@ -37,6 +43,10 @@ class HamburgerMenu {
 
         await LoginPage.login('standard_user', 'secret_sauce');
         await this.openHamburgerMenu();
+
+        await this.addToCart.click();
+        await expect(this.cartIconNumber).toBeExisting();
+
     }
 
 }
