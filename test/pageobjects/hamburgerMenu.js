@@ -31,6 +31,9 @@ class HamburgerMenu {
     get cartIcon () {
         return $('a.shopping_cart_link')
     }
+    get aboutPage () {
+        return $('a[href="https://accounts.saucelabs.com/am/XUI/#login/"]')
+    }
 
     async openHamburgerMenu () {
         await this.btnHamburgerMenu.click();
@@ -52,6 +55,9 @@ class HamburgerMenu {
 
         await this.resetApp.click();
         await expect(this.cartIcon).toBeExisting();
+
+        await this.about.click();
+        await expect(this.aboutPage).toBeExisting();
     }
 
 }
