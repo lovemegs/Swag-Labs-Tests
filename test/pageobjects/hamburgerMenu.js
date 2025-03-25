@@ -28,6 +28,9 @@ class HamburgerMenu {
     get cartIconNumber () {
         return $('span.shopping_cart_badge')
     }
+    get cartIcon () {
+        return $('a.shopping_cart_link')
+    }
 
     async openHamburgerMenu () {
         await this.btnHamburgerMenu.click();
@@ -47,6 +50,8 @@ class HamburgerMenu {
         await this.addToCart.click();
         await expect(this.cartIconNumber).toBeExisting();
 
+        await this.resetApp.click();
+        await expect(this.cartIcon).toBeExisting();
     }
 
 }
